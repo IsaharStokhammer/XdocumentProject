@@ -9,7 +9,7 @@ namespace XdocumentProject
 {
     public class XmlService
     {
-        private readonly string xmlFilePath; // Set this to your XML file path
+        private readonly string xmlFilePath;
 
         public XmlService(string xmlFilePath)
         {
@@ -20,14 +20,8 @@ namespace XdocumentProject
         {
             // Load existing XML or create a new one if it doesn't exist
             XDocument doc;
-            if (File.Exists(xmlFilePath))
-            {
-                doc = XDocument.Load(xmlFilePath);
-            }
-            else
-            {
-                doc = new XDocument(new XElement("Questions"));
-            }
+            doc = XDocument.Load(xmlFilePath);
+
 
             // Add a new question element
             var questionElement = new XElement("Question",
@@ -40,6 +34,6 @@ namespace XdocumentProject
             doc.Save(xmlFilePath);
         }
 
-        // Add other methods for reading, updating, and deleting questions as needed
+
     }
 }
